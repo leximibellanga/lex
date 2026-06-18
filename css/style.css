@@ -1,0 +1,441 @@
+/* ===== TEMA: variáveis (light = default, dark = override) ===== */
+:root {
+    --bg: #ffffff;
+    --bg-alt: #f5f3fa;
+    --surface: #ffffff;
+    --text: #1a1625;
+    --text-muted: #5b5468;
+    --primary: #6441a4;
+    --primary-light: #8a63d2;
+    --secondary: #392e5c;
+    --border: #e7e2f3;
+}
+
+html.dark {
+    --bg: #0d0b12;
+    --bg-alt: #15101f;
+    --surface: #1c1628;
+    --text: #f5f3fa;
+    --text-muted: #b8aed1;
+    --primary: #8a63d2;
+    --primary-light: #6441a4;
+    --secondary: #392e5c;
+    --border: #392e5c;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+
+/* ===== Eyebrow / labels estilo código ===== */
+.section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--primary);
+    font-size: .85rem;
+    letter-spacing: .05em;
+}
+
+/* ===== Botões ===== */
+.btn-primary,
+.btn-outline,
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .75rem 1.75rem;
+    border-radius: .5rem;
+    font-weight: 600;
+    font-size: .9rem;
+    transition: transform .2s, background .2s, color .2s, box-shadow .2s;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -8px var(--primary);
+}
+
+.btn-outline {
+    border: 1.5px solid var(--primary);
+    color: var(--primary);
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+    background: #25d366;
+    color: #fff;
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-2px);
+}
+
+/* ===== Nav ===== */
+.nav-link {
+    position: relative;
+    color: var(--text);
+    transition: color .2s;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width .25s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ===== Scroll reveal ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+.reveal.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Scroll indicator (hero) ===== */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--primary);
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, 10px);
+    }
+}
+
+/* ===== Typewriter ===== */
+.typed-cursor {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+
+/* ===== Órbita de ícones (Sobre) ===== */
+.orbit-track {
+    animation: orbit-rotate 22s linear infinite;
+    /* border: 2px solid #1b6b3a;
+    overflow: hidden;
+    border-radius: 50%; */
+    
+}
+
+.orbit-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Garante que o ponto de rotação seja exatamente o centro do ícone */
+    margin-top: -15px;
+    margin-left: -25px;
+}
+
+.orbit-icon {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .8rem;
+    font-weight: 600;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--primary);
+    padding: .35rem .55rem;
+    border-radius: .4rem;
+    box-shadow: 0 4px 12px -6px rgba(0, 0, 0, .2);
+    animation: orbit-counter 22s linear infinite;
+}
+
+@keyframes orbit-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes orbit-counter {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+
+/* ===== Skills ===== */
+.skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: .75rem;
+    padding: 1.5rem;
+}
+
+.skill-cat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .85rem;
+    color: var(--text-muted);
+    margin-bottom: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.skill-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .8rem;
+    background: var(--bg-alt);
+    color: var(--primary);
+    border: 1px solid var(--border);
+    padding: .3rem .65rem;
+    border-radius: .4rem;
+}
+
+/* ===== Timeline (Formação) ===== */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid var(--border);
+    display: grid;
+    gap: 2.5rem;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -2.45rem;
+    top: .2rem;
+    width: 12px;
+    height: 12px;
+    background: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--bg-alt);
+}
+
+/* ===== Projectos ===== */
+.project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: .9rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .25s, box-shadow .25s;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 30px -16px var(--primary);
+}
+
+.project-thumb {
+    height: 240px;
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    display: grid;
+    place-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+.project-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    flex: 1;
+}
+
+.status-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .7rem;
+    padding: .2rem .55rem;
+    border-radius: .3rem;
+    width: fit-content;
+}
+
+.status-public {
+    background: #d8f3dc;
+    color: #1b6b3a;
+}
+
+.status-progress {
+    background: #fff3cd;
+    color: #946200;
+}
+
+.status-private {
+    background: #f4d9d9;
+    color: #9c2b2b;
+}
+
+html.dark .status-public {
+    background: #1b6b3a33;
+    color: #6fd99a;
+}
+
+html.dark .status-progress {
+    background: #94620033;
+    color: #ffd479;
+}
+
+html.dark .status-private {
+    background: #9c2b2b33;
+    color: #ff9b9b;
+}
+
+/* ===== Modal ===== */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, .55);
+    display: grid;
+    place-items: center;
+    padding: 1.5rem;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: .9rem;
+    padding: 2rem;
+    max-width: 380px;
+    text-align: center;
+    animation: modal-in .25s ease;
+}
+
+@keyframes modal-in {
+    from {
+        opacity: 0;
+        transform: scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ===== Form ===== */
+.form-input {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: .5rem;
+    padding: .7rem 1rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color .2s;
+}
+
+.form-input:focus {
+    border-color: var(--primary);
+}
+
+/* ===== Social icons ===== */
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    color: var(--text);
+    transition: all .2s;
+}
+
+.social-icon:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* ===== Acessibilidade: reduzir movimento ===== */
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal,
+    .orbit-track,
+    .orbit-icon,
+    .scroll-indicator,
+    .typed-cursor {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* ===== Foco visível para teclado ===== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}

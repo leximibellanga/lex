@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leximibel Langa</title>
+    <meta name="description" content="Portfólio de Leximibel Langa, Engenheiro de Software focado em desenvolvimento web, mobile e soluções criativas." />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.svg" type="image/x-icon">
+    <!-- Tailwind via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        bg: 'var(--bg)',
+                        'bg-alt': 'var(--bg-alt)',
+                        surface: 'var(--surface)',
+                        text: 'var(--text)',
+                        muted: 'var(--text-muted)',
+                        primary: 'var(--primary)',
+                        'primary-light': 'var(--primary-light)',
+                        secondary: 'var(--secondary)',
+                        border: 'var(--border)',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="bg-bg text-text font-sans antialiased transition-colors duration-300">
+    <!-- NAVBAR -->
+    <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-bg/80 border-b border-border">
+        <nav class="container mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+            <!-- logo -->
+            <a href="#home" class="font-mono text-xl font-bold text-primary">
+                &lt;LexLanga /&gt;
+            </a>
+            <!-- menu -->
+            <ul class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#education" class="nav-link">Formação</a></li>
+                <li><a href="#projects" class="nav-link">Projectos</a></li>
+                <li><a href="#contact" class="nav-link">Contacto</a></li>
+            </ul>
+            <!-- botões -->
+            <div class="flex items-center gap-3">
+                <!-- botão de alternar tema -->
+                <button id="theme-toggle" aria-label="Alternar tema"
+                    class="w-10 h-10 rounded-full grid place-items-center border border-border hover:border-primary transition-colors">
+                    <span id="icon-sun" class="hidden">
+                        <i class="fas fa-sun text-primary"></i>
+                    </span>
+                    <span id="icon-moon">
+                        <i class="fas fa-moon text-primary"></i>
+                    </span>
+                </button>
+                <!-- botão de menu mobile -->
+                <button id="menu-toggle" aria-label="Abrir menu"
+                    class="md:hidden w-10 h-10 grid place-items-center border border-border rounded-full">
+                    <span class="font-mono">
+                        <i class="fas fa-bars text-primary"></i>
+                    </span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Menu mobile -->
+        <div id="mobile-menu" class="hidden md:hidden flex-col gap-4 px-6 pb-6 font-medium">
+            <a href="#home" class="nav-link block">
+                Home
+            </a>
+            <a href="#about" class="nav-link block">
+                Sobre
+            </a>
+            <a href="#skills" class="nav-link block">
+                Skills
+            </a>
+            <a href="#education" class="nav-link block">
+                Formação
+            </a>
+            <a href="#projects" class="nav-link block">
+                Projectos
+            </a>
+            <a href="#contact" class="nav-link block">
+                Contacto
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="relative min-h-screen flex items-center overflow-hidden pt-20">
+        <canvas id="matrix-canvas"
+            class="absolute inset-0 w-full h-full pointer-events-none opacity-20 dark:opacity-30"></canvas>
+
+        <div class="relative z-10 container mx-auto px-6 md:px-12 flex flex-col items-center overflow-hidden">
+            <p class="reveal font-mono text-primary text-sm md:text-base mb-4">// Olá, o meu nome é</p>
+            <h1 class="reveal text-4xl md:text-6xl font-bold mb-4">Leximibel Langa</h1>
+            <h2 class="reveal text-2xl md:text-4xl font-semibold text-muted mb-6">
+                <span class="text-orange-500">{</span>
+                Eu sou
+                <span id="typed-text" class="font-mono text-primary"></span><span
+                    class="typed-cursor font-mono text-primary">|</span>
+                <span class="text-orange-400">}</span>
+            </h2>
+            <p class="reveal max-w-xl text-muted text-center mb-10">
+                Construo software com atenção ao detalhe, do back-end em Java/Spring Boot a interfaces em React,
+                sempre à procura de aprender mais uma linguagem, uma framework, um problema interessante.
+            </p>
+            <div class="reveal flex flex-wrap gap-4">
+                <a href="#projects" class="btn-primary">Ver Projectos</a>
+                <a href="#contact" class="btn-outline">Falar comigo</a>
+            </div>
+        </div>
+        <a href="#about" class="scroll-indicator" aria-label="Scroll para baixo">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="about" class="py-24 bg-bg-alt">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid md:grid-cols-2 gap-16 items-center mt-6">
+                <!-- Foto com órbita de ícones -->
+                <div class="reveal flex justify-center">
+                    <div class="relative w-80 h-80 md:w-96 md:h-96 flex items-center justify-center">
+                        <div class="absolute w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-primary/30 z-0">
+                            <img src="assets/img/foto.jpg" alt="Foto de LexLanga" class="w-full h-full object-cover " />
+                        </div>
+                        <div class="orbit-track absolute inset-0 z-10 pointer-events-none">
+                            <span class="orbit-item" style="transform: rotate(0deg) translateY(-180px)">
+                                <span class="orbit-icon">{ }</span></span>
+                            <span class="orbit-item" style="transform: rotate(51deg) translateY(-180px)">
+                                <span class="orbit-icon">&lt;/&gt;</span>
+                            </span>
+                            <span class="orbit-item" style="transform: rotate(102deg) translateY(-180px)">
+                                <span class="orbit-icon">JS</span>
+                            </span>
+                            <span class="orbit-item" style="transform: rotate(153deg) translateY(-180px)">
+                                <span class="orbit-icon">Java</span>
+                            </span>
+                            <span class="orbit-item" style="transform: rotate(204deg) translateY(-180px)">
+                                <span class="orbit-icon">SQL</span>
+                            </span>
+                            <span class="orbit-item" style="transform: rotate(255deg) translateY(-180px)">
+                                <span class="orbit-icon">git</span>
+                            </span>
+                            <span class="orbit-item" style="transform: rotate(306deg) translateY(-180px)">
+                                <span class="orbit-icon">=&gt;</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Texto -->
+                <div class="reveal">
+                    <p class="reveal section-eyebrow mb-6">&lt;Sobre /&gt;</p>
+                    <h3 class="text-2xl font-bold mb-4">// Quem sou eu?</h3>
+                    <p class="text-muted mb-4">
+                        Sou estudante de Informática e Engenheiro de Software em formação, apaixonado por transformar
+                        ideias
+                        em produtos digitais funcionais — desde aplicações web completas até protótipos 3D e animações.
+                        Gosto de aprender fazendo: cada projecto é uma desculpa para testar uma stack nova.
+                    </p>
+                    <p class="text-muted mb-6">
+                        No dia a dia, equilibro estudos, cursos online e projectos pessoais, sempre com curiosidade por
+                        inteligência artificial, design gráfico e multimédia como extensões naturais da programação.
+                    </p>
+                    
+                    <h3 class="text-xl font-bold mt-4 mb-3 text-muted">
+                        <span class="text-orange-500">{</span> Areas de Interesse <span class="text-orange-500">}</span>
+                    </h3>
+                    <div class="flex flex-wrap gap-5">
+                        <span class="skill-tag">Desenvolvimento de Software</span>
+                        <span class="skill-tag">Design Gráfico</span>
+                        <span class="skill-tag">Multimédia</span>
+                    </div>
+                    <a href="assets/docs/cv.pdf" download="cv" class="btn-outline mt-8">
+                        DOWNLOAD CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-24">
+        <div class="container mx-auto px-6 md:px-12">
+            <p class="reveal section-eyebrow mb-8">{ Skills & Technologies }</p>
+            <!-- <h3 class="reveal text-3xl font-bold mb-12">O que eu uso no dia a dia</h3> -->
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="reveal skill-card">
+                    <h4 class="skill-cat">Linguagens</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">Java</span><span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">PHP</span><span class="skill-tag">HTML</span><span
+                            class="skill-tag">CSS</span>
+                    </div>
+                </div>
+
+                <div class="reveal skill-card">
+                    <h4 class="skill-cat">Frameworks &amp; Bibliotecas</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">Spring Boot</span><span class="skill-tag">React.js</span>
+                        <span class="skill-tag">TailwindCSS</span><span class="skill-tag">Bootstrap</span>
+                    </div>
+                </div>
+
+                <div class="reveal skill-card">
+                    <h4 class="skill-cat">Bases de Dados</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">MySQL</span><span class="skill-tag">PostgreSQL</span>
+                    </div>
+                </div>
+
+                <div class="reveal skill-card">
+                    <h4 class="skill-cat">Ferramentas &amp; IDEs</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">VS Code</span><span class="skill-tag">IntelliJ</span>
+                        <span class="skill-tag">Git / GitHub</span>
+                    </div>
+                </div>
+
+                <div class="reveal skill-card">
+                    <h4 class="skill-cat">Design &amp; Multimédia</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">Blender</span><span class="skill-tag">Pencil2D</span>
+                        <span class="skill-tag">Figma</span>
+                    </div>
+                </div>
+
+                <div class="reveal skill-card">
+                    <h4 class="skill-cat">IA</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">Gemini</span><span class="skill-tag">ChatGPT</span><span
+                            class="skill-tag">Claude</span>
+                    </div>
+                </div>
+
+                <div class="reveal skill-card md:col-span-2 lg:col-span-3">
+                    <h4 class="skill-cat">Deploy &amp; Hospedagem</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">Vercel</span><span class="skill-tag">Netlify</span>
+                        <span class="skill-tag">InfinityFree</span><span class="skill-tag">Railway</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMAÇÃO -->
+    <section id="education" class="py-24 bg-bg-alt">
+        <div class="container mx-auto px-6 md:px-12">
+            <p class="reveal section-eyebrow mb-4">Formação();</p>
+            <h3 class="reveal text-3xl font-bold mb-12">Percurso académico</h3>
+
+            <div class="timeline">
+                <div class="reveal timeline-item">
+                    <span class="timeline-dot"></span>
+                    <p class="font-mono text-sm text-primary">2024 — presente</p>
+                    <h4 class="font-semibold text-lg">Ensino Superior, Informática</h4>
+                    <p class="text-muted text-sm">Curso superior em Informática, em andamento.</p>
+                </div>
+
+                <div class="reveal timeline-item">
+                    <span class="timeline-dot"></span>
+                    <p class="font-mono text-sm text-primary">2023</p>
+                    <h4 class="font-semibold text-lg">Gestão Financeira — Believe Educacional</h4>
+                    <p class="text-muted text-sm">Curso técnico-profissional (6 meses), certificação concluída.</p>
+                </div>
+
+                <div class="reveal timeline-item">
+                    <span class="timeline-dot"></span>
+                    <p class="font-mono text-sm text-primary">2022</p>
+                    <h4 class="font-semibold text-lg">Ensino Médio</h4>
+                    <p class="text-muted text-sm">Escola Secundária Bonifácio Gruveta Massamba — concluído.</p>
+                </div>
+
+                <div class="reveal timeline-item">
+                    <span class="timeline-dot"></span>
+                    <p class="font-mono text-sm text-primary">Contínuo</p>
+                    <h4 class="font-semibold text-lg">Cursos Online</h4>
+                    <p class="text-muted text-sm">
+                        FreeCodeCamp, SoloLearn e outras plataformas — TypeScript, SCSS, Spring Boot e tópicos avançados de desenvolvimento web.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTOS (preview) -->
+    <section id="projects" class="py-24">
+        <div class="container mx-auto px-6 md:px-12">
+            <p class="reveal section-eyebrow mb-4">{ Projectos }</p>
+            <h3 class="reveal text-3xl font-bold mb-12">Alguns dos meus trabalhos</h3>
+
+            <div id="home-projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- preenchido via js/projects-render.js -->
+            </div>
+
+            <div class="reveal text-center mt-12">
+                <a href="projects.html" class="btn-outline">Ver todos os projectos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contact" class="py-24 bg-bg-alt">
+        <div class="container mx-auto px-6 md:px-12">
+            <p class="reveal section-eyebrow">Contacto();</p>
+            <h3 class="reveal text-3xl font-bold mb-12">Vamos conversar</h3>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <form id="contact-form" class="reveal grid gap-5">
+                    <div>
+                        <label for="name" class="block text-sm font-medium mb-1">Nome</label>
+                        <input id="name" name="name" type="text" required class="form-input" placeholder="O teu nome" />
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-1">E-mail</label>
+                        <input id="email" name="email" type="email" required class="form-input"
+                            placeholder="o-teu-email@exemplo.com" />
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-medium mb-1">Assunto</label>
+                        <input id="subject" name="subject" type="text" required class="form-input"
+                            placeholder="Sobre o que é?" />
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium mb-1">Mensagem</label>
+                        <textarea id="message" name="message" rows="5" required class="form-input"
+                            placeholder="A tua mensagem..."></textarea>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <button type="submit" class="btn-primary">Enviar mensagem</button>
+                        <button type="reset" id="clear-form" class="btn-outline">Limpar</button>
+                    </div>
+                    <p id="form-status" class="text-sm font-mono text-primary hidden"></p>
+                </form>
+
+                <div class="reveal flex flex-col gap-6">
+                    <p class="text-muted">
+                        Prefere algo mais directo? Manda-me uma mensagem no WhatsApp e respondo o mais rápido possível.
+                    </p>
+                    <a href="https://wa.me/258840000000?text=Ol%C3%A1%2C%20vi%20o%20teu%20portf%C3%B3lio%20e%20gostaria%20de%20falar%20contigo!"
+                        target="_blank" rel="noopener" class="btn-whatsapp w-fit">
+                        🟢 Falar no WhatsApp
+                    </a>
+
+                    <div>
+                        <p class="font-mono text-sm text-muted mb-3">// encontra-me também aqui</p>
+                        <div class="flex gap-4 text-2xl">
+                            <a href="#" target="_blank" rel="noopener" class="social-icon"
+                                aria-label="X / Twitter">𝕏</a>
+                            <a href="#" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">f</a>
+                            <a href="#" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">📷</a>
+                            <a href="#" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">in</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-10 border-t border-border">
+        <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="font-mono text-sm text-muted">LexLanga © Copyright 2026</p>
+            <div class="flex gap-4 text-lg">
+                <a href="#" target="_blank" rel="noopener" class="social-icon" aria-label="X / Twitter">𝕏</a>
+                <a href="#" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">f</a>
+                <a href="#" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">📷</a>
+                <a href="#" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">in</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL projecto privado / em andamento -->
+    <div id="project-modal" class="modal hidden">
+        <div class="modal-box">
+            <p id="modal-message" class="font-mono text-primary mb-4"></p>
+            <button id="modal-close" class="btn-outline">Fechar</button>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/scroll-reveal.js"></script>
+    <script src="js/hero-animation.js"></script>
+    <script src="js/projects-data.js"></script>
+    <script src="js/projects-render.js"></script>
+    <script src="js/contact-form.js"></script>
+</body>
+
+</html>

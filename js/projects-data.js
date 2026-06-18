@@ -1,0 +1,57 @@
+// Substitui pelos teus projectos reais (imagens, links, descrições)
+const projectsData = [
+    {
+        title: 'Sistema de Gestão Escolar',
+        description: 'Plataforma web para gestão de notas e matrículas, com painel administrativo.',
+        stack: ['Java', 'Spring Boot', 'MySQL', 'Bootstrap'],
+        status: 'public', // public | progress | private
+        link: '#',
+        img: "assets/projects/project01.png",
+        featured: true,
+    },
+    {
+        title: 'Loja Online — E-commerce',
+        description: 'Catálogo de produtos com carrinho de compras e painel de administração.',
+        stack: ['React.js', 'TailwindCSS', 'PostgreSQL'],
+        status: 'public',
+        link: '#',
+        img: "assets/projects/project01.png",
+        featured: true,
+    },
+    {
+        title: 'App de Finanças Pessoais',
+        description: 'Controlo de receitas e despesas com gráficos e exportação de relatórios.',
+        stack: ['JavaScript', 'PHP', 'MySQL'],
+        status: 'progress',
+        link: '#',
+        img: "assets/projects/project01.png",
+        featured: true,
+    },
+    {
+        title: 'Animação 3D — Curta Apresentação',
+        description: 'Peça de animação 3D produzida em Blender para um projecto académico.',
+        stack: ['Blender', 'Pencil2D'],
+        status: 'public',
+        link: '#',
+        img: "assets/projects/project01.png",
+        featured: false,
+    },
+    {
+        title: 'Dashboard Interno (Cliente)',
+        description: 'Painel de análise de dados desenvolvido para um cliente — código não público.',
+        stack: ['React.js', 'Spring Boot', 'PostgreSQL'],
+        status: 'private',
+        link: '#',
+        img: "assets/projects/project01.png",
+        featured: false,
+    },
+    {
+        title: 'Portfólio v1',
+        description: 'Primeira versão deste portfólio, construído com HTML, CSS e JS puro.',
+        stack: ['HTML', 'CSS', 'JavaScript'],
+        status: 'public',
+        link: '#',
+        img: "assets/projects/project01.png",
+        featured: false,
+    },
+];

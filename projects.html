@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projectos — Nome Completo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        bg: 'var(--bg)', 'bg-alt': 'var(--bg-alt)', surface: 'var(--surface)',
+                        text: 'var(--text)', muted: 'var(--text-muted)', primary: 'var(--primary)',
+                        'primary-light': 'var(--primary-light)', secondary: 'var(--secondary)', border: 'var(--border)',
+                    },
+                    fontFamily: { sans: ['Poppins', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                },
+            },
+        };
+    </script>
+
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-bg text-text font-sans antialiased transition-colors duration-300">
+
+    <div id="cursor-dot" class="cursor-dot"></div>
+    <div id="cursor-ring" class="cursor-ring"></div>
+
+    <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-bg/80 border-b border-border">
+        <nav class="container mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+            <a href="index.html#home" class="font-mono text-xl font-bold text-primary">&lt;Nome /&gt;</a>
+            <ul class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">Sobre</a></li>
+                <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="index.html#education" class="nav-link">Formação</a></li>
+                <li><a href="projects.html" class="nav-link text-primary">Projectos</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contacto</a></li>
+            </ul>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" aria-label="Alternar tema"
+                    class="w-10 h-10 rounded-full grid place-items-center border border-border hover:border-primary transition-colors">
+                    <span id="icon-sun" class="hidden">☀️</span>
+                    <span id="icon-moon">🌙</span>
+                </button>
+                <button id="menu-toggle" aria-label="Abrir menu"
+                    class="md:hidden w-10 h-10 grid place-items-center border border-border rounded-full">
+                    <span class="font-mono">☰</span>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden flex-col gap-4 px-6 pb-6 font-medium">
+            <a href="index.html#home" class="nav-link block">Home</a>
+            <a href="index.html#about" class="nav-link block">Sobre</a>
+            <a href="index.html#skills" class="nav-link block">Skills</a>
+            <a href="index.html#education" class="nav-link block">Formação</a>
+            <a href="projects.html" class="nav-link block">Projectos</a>
+            <a href="index.html#contact" class="nav-link block">Contacto</a>
+        </div>
+    </header>
+
+    <section class="pt-36 pb-24">
+        <div class="container mx-auto px-6 md:px-12">
+            <p class="reveal section-eyebrow">{ Projectos }</p>
+            <h1 class="reveal text-4xl font-bold mb-4">Todos os projectos</h1>
+            <p class="reveal text-muted max-w-xl mb-12">
+                Uma colecção de trabalhos — alguns públicos e disponíveis online, outros ainda privados ou em andamento.
+            </p>
+
+            <div id="all-projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- preenchido via js/projects-render.js -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 border-t border-border">
+        <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="font-mono text-sm text-muted">Nome Completo © Copyright 2026</p>
+            <div class="flex gap-4 text-lg">
+                <a href="#" target="_blank" rel="noopener" class="social-icon">𝕏</a>
+                <a href="#" target="_blank" rel="noopener" class="social-icon">f</a>
+                <a href="#" target="_blank" rel="noopener" class="social-icon">📷</a>
+                <a href="#" target="_blank" rel="noopener" class="social-icon">in</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="project-modal" class="modal hidden">
+        <div class="modal-box">
+            <p id="modal-message" class="font-mono text-primary mb-4"></p>
+            <button id="modal-close" class="btn-outline">Fechar</button>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/scroll-reveal.js"></script>
+    <script src="js/projects-data.js"></script>
+    <script src="js/projects-render.js"></script>
+</body>
+
+</html>
