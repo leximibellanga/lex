@@ -171,55 +171,59 @@ html {
 
 /* ===== Órbita de ícones (Sobre) ===== */
 .orbit-track {
-    animation: orbit-rotate 22s linear infinite;
-    /* border: 2px solid #1b6b3a;
-    overflow: hidden;
-    border-radius: 50%; */
-    
+  animation: orbit-rotate 22s linear infinite;
 }
 
 .orbit-item {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    /* Garante que o ponto de rotação seja exatamente o centro do ícone */
-    margin-top: -15px;
-    margin-left: -25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* Centraliza o ponto de origem do próprio ícone */
+  transform: translate(-50%, -50%) rotate(var(--i)) translateY(-110px);
 }
 
 .orbit-icon {
-    display: inline-block;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: .8rem;
-    font-weight: 600;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--primary);
-    padding: .35rem .55rem;
-    border-radius: .4rem;
-    box-shadow: 0 4px 12px -6px rgba(0, 0, 0, .2);
-    animation: orbit-counter 22s linear infinite;
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .75rem;
+  font-weight: 600;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--primary);
+  padding: .35rem .55rem;
+  border-radius: .4rem;
+  box-shadow: 0 4px 12px -6px rgba(0, 0, 0, .2);
+  /* Cancela a rotação para manter o texto sempre de pé */
+  animation: orbit-counter 22s linear infinite;
 }
 
-@keyframes orbit-rotate {
-    from {
-        transform: rotate(0deg);
-    }
+/* Responsividade do raio da órbita */
+@media (min-width: 640px) {
+  .orbit-item {
+    transform: translate(-50%, -50%) rotate(var(--i)) translateY(-140px);
+  }
+  .orbit-icon {
+    font-size: .8rem;
+  }
+}
 
-    to {
-        transform: rotate(360deg);
-    }
+@media (min-width: 768px) {
+  .orbit-item {
+    transform: translate(-50%, -50%) rotate(var(--i)) translateY(-170px);
+  }
+}
+
+/* Animações */
+@keyframes orbit-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 @keyframes orbit-counter {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(-360deg);
-    }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
 }
+
 
 
 /* ===== Skills ===== */

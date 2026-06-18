@@ -139,35 +139,28 @@
         <div class="container mx-auto px-6 md:px-12">
             <div class="grid md:grid-cols-2 gap-16 items-center mt-6">
                 <!-- Foto com órbita de ícones -->
-                <div class="reveal flex justify-center">
-                    <div class="relative w-80 h-80 md:w-96 md:h-96 flex items-center justify-center">
-                        <div class="absolute w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-primary/30 z-0">
-                            <img src="assets/img/foto.jpg" alt="Foto de LexLanga" class="w-full h-full object-cover " />
-                        </div>
-                        <div class="orbit-track absolute inset-0 z-10 pointer-events-none">
-                            <span class="orbit-item" style="transform: rotate(0deg) translateY(-180px)">
-                                <span class="orbit-icon">{ }</span></span>
-                            <span class="orbit-item" style="transform: rotate(51deg) translateY(-180px)">
-                                <span class="orbit-icon">&lt;/&gt;</span>
-                            </span>
-                            <span class="orbit-item" style="transform: rotate(102deg) translateY(-180px)">
-                                <span class="orbit-icon">JS</span>
-                            </span>
-                            <span class="orbit-item" style="transform: rotate(153deg) translateY(-180px)">
-                                <span class="orbit-icon">Java</span>
-                            </span>
-                            <span class="orbit-item" style="transform: rotate(204deg) translateY(-180px)">
-                                <span class="orbit-icon">SQL</span>
-                            </span>
-                            <span class="orbit-item" style="transform: rotate(255deg) translateY(-180px)">
-                                <span class="orbit-icon">git</span>
-                            </span>
-                            <span class="orbit-item" style="transform: rotate(306deg) translateY(-180px)">
-                                <span class="orbit-icon">=&gt;</span>
-                            </span>
-                        </div>
+                <div class="reveal flex justify-center overflow-hidden w-full py-8">
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center">
+                    
+                    <!-- Imagem Central -->
+                    <div class="absolute w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/20 z-0">
+                        <img src="assets/img/foto.jpg" alt="Foto de LexLanga" class="w-full h-full object-cover" />
                     </div>
+
+                    <!-- Órbita -->
+                    <div class="orbit-track absolute inset-0 z-10 pointer-events-none">
+                        <span class="orbit-item" style="--i: 0deg;"><span class="orbit-icon">{ }</span></span>
+                        <span class="orbit-item" style="--i: 51deg;"><span class="orbit-icon">&lt;/&gt;</span></span>
+                        <span class="orbit-item" style="--i: 102deg;"><span class="orbit-icon">JS</span></span>
+                        <span class="orbit-item" style="--i: 153deg;"><span class="orbit-icon">Java</span></span>
+                        <span class="orbit-item" style="--i: 204deg;"><span class="orbit-icon">SQL</span></span>
+                        <span class="orbit-item" style="--i: 255deg;"><span class="orbit-icon">git</span></span>
+                        <span class="orbit-item" style="--i: 306deg;"><span class="orbit-icon">=&gt;</span></span>
+                    </div>
+
                 </div>
+                </div>
+
 
                 <!-- Texto -->
                 <div class="reveal">
