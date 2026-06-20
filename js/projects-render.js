@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         card.innerHTML = `
         <div class="project-thumb overflow-hidden">
-            <img src="${project.img}" alt="projecto ${project.title} class="object-cover">
+            <img src="${project.img}" alt="projecto ${project.title} class="block object-cover object-[center_center]">
         </div>
         <div class="project-body">
             <span class="status-badge ${statusClass[project.status]}">${statusLabel[project.status]}</span>
