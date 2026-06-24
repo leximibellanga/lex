@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="css/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="shortcut icon" href="assets/img/favicon.svg" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -40,12 +42,12 @@
             <div class="flex items-center gap-3">
                 <button id="theme-toggle" aria-label="Alternar tema"
                     class="w-10 h-10 rounded-full grid place-items-center border border-border hover:border-primary transition-colors">
-                    <span id="icon-sun" class="hidden">☀️</span>
-                    <span id="icon-moon">🌙</span>
+                    <span id="icon-sun" class="hidden"><i class="fas fa-sun"></i></span>
+                    <span id="icon-moon"><i class="fas fa-moon"></i></span>
                 </button>
                 <button id="menu-toggle" aria-label="Abrir menu"
                     class="md:hidden w-10 h-10 grid place-items-center border border-border rounded-full">
-                    <span class="font-mono">☰</span>
+                    <span class="font-mono"><i class="fas fa-bars"></i></span>
                 </button>
             </div>
         </nav>
@@ -72,7 +74,7 @@
     </section>
     <footer class="py-10 border-t border-border">
         <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p class="font-mono text-sm text-muted">Nome Completo © Copyright 2026</p>
+            <p class="font-mono text-sm text-muted">LexLanga © Copyright 2026</p>
             <div class="flex gap-4 text-lg">
                 <a href="#" target="_blank" rel="noopener" class="social-icon">𝕏</a>
                 <a href="#" target="_blank" rel="noopener" class="social-icon">f</a>

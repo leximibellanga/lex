@@ -34,7 +34,7 @@ html {
 
 ::-webkit-scrollbar {
     width: 8px;
-    }
+}
 
 ::-webkit-scrollbar-thumb {
     background: var(--primary);
@@ -169,59 +169,168 @@ html {
 }
 
 
-/* ===== Órbita de ícones (Sobre) ===== */
-.orbit-track {
-  animation: orbit-rotate 22s linear infinite;
+/* ===== Foto de perfil — glow ring + tilt 3D ===== */
+.profile-wrapper {
+    position: relative;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
 }
 
-.orbit-item {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  /* Centraliza o ponto de origem do próprio ícone */
-  transform: translate(-50%, -50%) rotate(var(--i)) translateY(-110px);
+.profile-card {
+    position: relative;
+    width: 280px;
+    height: 320px;
+    border-radius: 16px;
+    transform-style: preserve-3d;
+    transform: perspective(800px) rotateX(0deg) rotateY(0deg);
+    transition: transform 0.08s ease, box-shadow 0.3s ease;
+    cursor: default;
 }
 
-.orbit-icon {
-  display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .75rem;
-  font-weight: 600;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--primary);
-  padding: .35rem .55rem;
-  border-radius: .4rem;
-  box-shadow: 0 4px 12px -6px rgba(0, 0, 0, .2);
-  /* Cancela a rotação para manter o texto sempre de pé */
-  animation: orbit-counter 22s linear infinite;
+/* Glow ring que roda */
+.profile-glow-ring {
+    position: absolute;
+    inset: -4px;
+    border-radius: 18px;
+    background: conic-gradient(from 0deg,
+            transparent 0%,
+            var(--primary) 30%,
+            var(--primary-light) 50%,
+            transparent 70%);
+    animation: glow-rotate 3s linear infinite;
+    z-index: 0;
 }
 
-/* Responsividade do raio da órbita */
-@media (min-width: 640px) {
-  .orbit-item {
-    transform: translate(-50%, -50%) rotate(var(--i)) translateY(-140px);
-  }
-  .orbit-icon {
-    font-size: .8rem;
-  }
+.profile-glow-ring::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 15px;
+    background: var(--bg-alt);
+    z-index: 1;
 }
 
-@media (min-width: 768px) {
-  .orbit-item {
-    transform: translate(-50%, -50%) rotate(var(--i)) translateY(-170px);
-  }
+/* Imagem */
+.profile-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+    z-index: 2;
+    display: block;
 }
 
-/* Animações */
-@keyframes orbit-rotate {
+/* Overlay no hover */
+.profile-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    background: linear-gradient(180deg,
+            transparent 40%,
+            rgba(57, 46, 92, 0.85) 100%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 3;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.25rem;
+}
+
+.profile-overlay-text {
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+}
+
+.profile-card:hover .profile-overlay {
+    opacity: 1;
+}
+
+.profile-card:hover .profile-overlay-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Reflexo de luz que segue o tilt */
+.profile-shine {
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    background: radial-gradient(circle at 50% 50%,
+            rgba(255, 255, 255, 0.18) 0%,
+            transparent 65%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.profile-card:hover .profile-shine {
+    opacity: 1;
+}
+
+/* Pulse de fundo */
+.profile-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    height: 320px;
+    border-radius: 16px;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    opacity: 0.12;
+    animation: pulse-glow 3s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.12;
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.06);
+        opacity: 0.22;
+    }
+}
+
+/* @keyframes glow-rotate {
   from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  to   { transform: rotate(360deg); }
+} */
+
+/* Slogan */
+.profile-slogan {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--primary);
+    text-align: center;
+    letter-spacing: 0.03em;
 }
 
-@keyframes orbit-counter {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
+@media (prefers-reduced-motion: reduce) {
+
+    .profile-glow-ring,
+    .profile-wrapper::before {
+        animation: none;
+    }
+
+    .profile-card {
+        transition: none;
+    }
 }
 
 

@@ -49,7 +49,7 @@ const projectsData = [
         title: 'SGTE',
         description: 'Sistema de gestao de transporte escolar.',
         stack: ['HTML', 'CSS', 'JS', 'PHP', 'BootStrap', 'MySQL'],
-        status: 'private',
+        status: 'public',
         link: 'https://transporteescolar.ifree.page',
         img: "assets/projects/project06.png",
         featured: false,
